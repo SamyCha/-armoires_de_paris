@@ -1,2 +1,60 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render "banner" %>
+    <div class="container text-center padded features">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <i class="fa fa-heart-o fa-4x" aria-hidden="true"></i>
+          <h4>Les armoires de Paris</h4>
+          <p>Triari nullo perdiscere ille eius inquam dissentientium ut in quo disputando inquam ut quae solent tum dicas a potest cum.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <i class="fa fa-shopping-bag fa-4x" aria-hidden="true"></i>
+          <h4>Vendez vos vetements</h4>
+          <p>Ipso faeneramur omnis liberalesque mercedis faeneramur fructus ad sic natura ad enim in sed sed exigamus enim liberalitatem propensi sed.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <i class="fa fa-calendar fa-4x" aria-hidden="true"></i>
+          <h4>Les Prochains évenements</h4>
+          <p>Alia desiderata solet solet causa et nihil vicissimque natura maxime est ex alio id coniungendam alio quisque verum hoc iis.</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <i class="fa fa-bullhorn fa-4x" aria-hidden="true"></i>
+          <h4>Partagez nos évenements</h4>
+          <p>Feci intractato sunt sed in maxima quae utatur appareat montuosis in vetustas illae animal quam commorati in si commorati silvestribus.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center padded" id="newsletter">
+      <h1>Recevoir des informations</h1>
+      <p>Laissez-nous votre e-mail</p>
+      <form class="form-inline">
+        <input type="email" placeholder="jeanne@gmail.com" class="form-control">
+        <input type="submit" value="Recevoir" class="btn btn-primary">
+      </form>
+    </div>
+
+    <div class="text-center padded" >
+      <h1>Les Prochains évenements</h1>
+    </div>
+
+    <div id="map" style="width: 100%;height: 500px;"></div>
+
+ <%= render "footer" %>
+
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @hash.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      });
+    <% end %>
+  <% end %>
