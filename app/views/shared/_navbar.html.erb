@@ -6,13 +6,14 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Fouiller dans les armoires", products_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Découvrir les évènements", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
     <% if user_signed_in? %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Ajouter un article", new_product_path, class: "btn btn-danger" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -20,7 +21,7 @@
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
+              <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -34,6 +35,12 @@
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
+            <li>
+              <%= link_to admin_dashboard_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Admin") %>
+              <% end %>
+            </li>
+
           </ul>
         </div>
       </div>
