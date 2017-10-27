@@ -14,12 +14,16 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    if @product.save
-      flash[:notice] = "Votre article a été enregistré"
-      redirect_to(:action => 'index')
-    else
-      render('new')
+  @product = current_user.products.build(product_params)
+    @product.user = current_user
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to(@product, :notice => 'Votre article a été crée') }
+        format.xml  { render :xml => @product, :status => :created, :location => @product }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @product.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
