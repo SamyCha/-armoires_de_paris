@@ -1,4 +1,8 @@
 <h2><%= @product.name %></h2>
 <p><%= @product.description %></p>
 <%= link_to "Refarfouiller dans les armoires", products_path, class: "btn btn-primary" %>
+<%= link_to "Modifier votre article", edit_product_path, class: "btn btn-danger" %>
+<%= link_to "Delete", product_path(@product),
+      method: :delete,
+      data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article?" }, class: "btn btn-danger" %>
 

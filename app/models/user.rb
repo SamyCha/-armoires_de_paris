@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :products
+  has_many :products, :dependent => :destroy
   has_many :reviews
 
 #Pour renvoyer dans le panneau admin l'email, on peut remplacer par "#{first_name} #{first_name}"
