@@ -15,10 +15,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-      if @product.save
-      redirect_to @product
+    if @product.save
+      flash[:notice] = "Votre article a été enregistré"
+      redirect_to(:action => 'index')
     else
-      render :new
+      render('new')
     end
   end
 
@@ -43,11 +44,6 @@ private
 
   def product_params
     params.require(:product).permit(:name, :description)
-    #Mise en forme des Fonts sur les cards
-    #parameters[:category] = parameters[:category].capitalize
-    #parameters[:title] = parameters[:title].upcase
-    #parameters[:description] = parameters[:description].downcase
-    #return parameters
   end
 
 end
