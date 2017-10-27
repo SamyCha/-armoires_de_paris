@@ -3,6 +3,14 @@
       <%= simple_form_for (@product) do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
+      <%= f.input :category %>
+      <%= f.input :price %>
+      <%= f.input :sexe %>
+      <%= f.input :taille %>
+      <%= f.input :marque %>
+      <%= f.input :etat, placeholder:"neuf, bon état, occasion, usé..." %>
+      <%= f.input :matiere %>
+      <%= f.input :couleur %>
       <%= f.button :submit %>
       <% end %>
     </div>
