@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :products
+  resources :evenements
 
   ActiveAdmin.routes(self)
   devise_for :users
