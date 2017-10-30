@@ -1,4 +1,6 @@
 class EvenementsController < ApplicationController
+   skip_before_action :authenticate_user!, only: :index
+
   def show
     @evenement = Evenement.find(params[:id])
     @evenement_coordinates = { lat: @evenement.latitude, lng: @evenement.longitude }
