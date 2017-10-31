@@ -1,13 +1,14 @@
 <div class="card"
   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('http://res.cloudinary.com/dbok3xp0b/image/upload/c_pad,h_200,w_300/v1508327524/qrowdmhacqk1c4blpw2b.jpg')">
+
   <div class="card-category">
-    <p><%= product.name %></p>
+    <p><%= product.category %></p>
   </div>
   <div class="card-description">
-    <h2><%= product.name %></h2>
-    <p><%= product.description %></p>
-    <p style="color:red"><%= product.name %> euros</p>
+    <p><strong><%= product.name %></strong></p>
+    <p><%= product.marque %></p>
+    <p style="color:red"><%= product.price %> euros</p>
   </div>
     <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
        <%= link_to "", product_path(product), class: "card-link" %>

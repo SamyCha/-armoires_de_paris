@@ -47,7 +47,7 @@ private
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :category, :price, :taille, :marque, :sexe, :etat, :couleur, :matiere)
+    params.require(:product).permit(:name, :description, :category, :price, :taille, :marque, :sexe, :etat, :couleur, :matiere, :photo)
   end
 
 end

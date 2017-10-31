@@ -9,7 +9,6 @@
       <%= link_to "Fouiller dans les armoires", products_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "S'inscrire à nos évènements", evenements_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-
        <%= link_to "Se connecter avec facebook", omniauth_authorize_path('user', 'facebook'), class: "navbar-wagon-item navbar-wagon-link" %><br />
 
     <% if user_signed_in? %>
