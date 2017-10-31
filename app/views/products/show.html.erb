@@ -1,23 +1,88 @@
-    <div class="container">
-<h2><%= @product.name %></h2>
-<p><%= @product.description %></p>
-<p>Matière: <%= @product.matiere %></p>
-<p>Taille: <%= @product.taille %></p>
-<p>Sexe: <%= @product.sexe %></p>
-<p>prix: <strong><%= @product.price %>euros </strong></p>
-<p>Etat: <%= @product.etat %></p>
-<p>Couleur: <%= @product.couleur %></p>
 
-<%= link_to "Refarfouiller dans les armoires", products_path, class: "btn btn-primary" %>
-<%= link_to "Modifier votre article", edit_product_path, class: "btn btn-danger" %>
-<%= link_to "Delete", product_path(@product),
-      method: :delete,
-      data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article?" }, class: "btn btn-danger" %>
+<div class="container">
+  <ol class="breadcrumb">
+    <li><%= link_to "Accueil", root_path %></li>
+    <li><%= link_to "Liste des articles", products_path %></li>
+    <li class="active">Articles</li>
+  </ol>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <h1><strong><%= @product.name %></strong></h1>
+            <p class="product-price"><strong><%= @product.price %> euros </strong></p>
+          <span class="label label-primary"><%= @product.category %></span>
+          <span>No. 1960140180</span>
+          <p class="description"><strong><%= @product.description %></strong></p>
+          <span class="sr-only">Four out of Five Stars</span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="label label-success">61 avis sur le vendeur</span>
+
+
+          <br>
+          <br>
+          <button class="btn btn-lg btn-brand btn-full-width">
+           Ajouter au panier
+          </button>
+          <% if user_signed_in? %>
+            <%= link_to "Modifier l'article", edit_product_path, class: "btn btn-danger" %>
+            <%= link_to "Supprimer l'article", product_path(@product),
+                method: :delete,
+                data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article?" }, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class=”col-md-6”>
+      <div class="img-thumbnail">
+        <% if @product.photo? %>
+        <%= cl_image_tag @product.photo.path, width: 400, height: 300, crop: :fill %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+     <li role="presentation" class="active">
+      <a href="#description"
+       aria-controls="description"
+       role="tab"
+       data-toggle="tab"
+      >Détails de l'article</a>
+     </li>
+     <li role="presentation">
+      <a href="#features"
+       aria-controls="features"
+       role="tab"
+       data-toggle="tab"
+      >Détail du vendeur</a>
+     </li>
+    </ul>
+<!-- Tab panes -->
+  <div class="tab-content">
+   <div role="tabpanel" class="tab-pane active" id="description">
+      <p>Matière: <strong><%= @product.matiere %></strong></p>
+      <p>Taille: <strong><%= @product.taille %></strong></p>
+      <p>Sexe: <strong><%= @product.sexe %></strong></p>
+      <p>Couleur: <strong><%= @product.couleur %></strong></p>
+      <p>Etat: <strong><%= @product.etat %></strong></p>
+   </div>
+   <div role="tabpanel" class="tab-pane top-10" id="features">
+  <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+   <p><strong><%= "Saraquette" %></strong></p>
+          <span class="sr-only">Four out of Five Stars</span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+          <span class="label label-success">61</span>
+          <p><%= "Dénicheuse invetérée de bonnes affaires. J'achète, je porte une fois..ou pas.. et je revends. Passionnée de chaussures à talons.. J'en possède une cinquantaine" %></p>
+   </div>
+  </div>
 </div>
-
-
-
-
-
-
-
