@@ -1,12 +1,23 @@
+  <ol class="breadcrumb">
+    <li><%= link_to "Accueil", root_path %></li>
+    <li class="active">Liste des articles</li>
+  </ol>
 
+<% if user_signed_in? %>
+  <% if current_user.vendor? %>
+      <%= render 'layouts/sidebar' %>
+  <% end %>
+<% end %>
+
+<div class="container">
+ <div class="col-sm-9 col-md-12">
   <h1 >Dans nos @rmoires</h1>
-
-  <div class="container">
-    <div class="cards-container">
-      <% @products.each do |product| %>
-      <div class="col-xs-12 col-sm-3">
-          <%= render "card", product: product %>
-      </div>
-      <% end %>
+  <div class="cards-container">
+    <% @products.each do |product| %>
+    <div class="col-xs-12 col-sm-3">
+      <%= render "card", product: product %>
     </div>
-
+      <% end %>
+  </div>
+</div>
+</div>

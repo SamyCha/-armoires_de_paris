@@ -74,7 +74,7 @@
    </div>
    <div role="tabpanel" class="tab-pane top-10" id="features">
   <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
-   <p><strong><%= "Saraquette" %></strong></p>
+   <p><strong><%= @product.user.username %></strong></p>
           <span class="sr-only">Four out of Five Stars</span>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -82,7 +82,7 @@
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
           <span class="label label-success">61</span>
-          <p><%= "Dénicheuse invetérée de bonnes affaires. J'achète, je porte une fois..ou pas.. et je revends. Passionnée de chaussures à talons.. J'en possède une cinquantaine" %></p>
+          <p><%= @product.user.description %></p>
    </div>
   </div>
 </div>

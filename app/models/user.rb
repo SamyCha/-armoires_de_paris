@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,6 +9,15 @@ class User < ApplicationRecord
   has_many :products, :dependent => :destroy
   has_many :reviews
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true
+  validates :address, presence: true
+  validates :first_name, presence: true
+  validates :description, presence: true
+  validates :role, presence: true
+  #validates :avatar, file: {ext: [:jpg, :png]}
 
 
 def self.find_for_facebook_oauth(auth)
@@ -35,5 +45,13 @@ def self.find_for_facebook_oauth(auth)
   def name
    email
   end
+#Pour définir le type d'utilisateur (client ou vendeur)
+  enum role: [:client, :vendor]
+  after_initialize :init
+
+  def init
+    self.role  ||= 0
+  end
+
 
 end
