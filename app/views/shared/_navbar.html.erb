@@ -12,10 +12,10 @@
        <%= link_to "Se connecter avec facebook", omniauth_authorize_path('user', 'facebook'), class: "navbar-wagon-item navbar-wagon-link" %><br />
 
     <% if user_signed_in? %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Links when logged in -->
-      <%= link_to "Ajouter un article", new_product_path, class: "btn btn-danger" %>
+<!--      <%= link_to "Ajouter un article", new_product_path, class: "btn btn-danger" %>
+-->
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

@@ -1,0 +1,11 @@
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-plus-square"></i><%= t(".profile", default: " Ajouter un article") %><% end %>
+        </li>
+        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-eye"></i><%= t(".profile", default: " Tous mes articles") %><% end %>
+        </li>
+
+        <li class="sidebar_editprofil"><%= link_to edit_user_registration_path do %><i class="fa fa-user"></i><%= t(".profile", default: " Editer mon profile") %><% end %>
+        </li>
+      </ul>
+    </div>
