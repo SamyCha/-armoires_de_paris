@@ -2,30 +2,14 @@
 <div class="product">
   <div class='product-upvote'>
     <div class="product-arrow"></div>
-    <div class='product-count'>23</div>
+    <div class='product-count'><%= evenement.zipcode %></div>
   </div>
-  <img src="kudoz.jpg" alt="la Recyclerie" class="product-image hidden-xs">
+  <%= image_tag "kudoz.jpg", class:"product-image hidden-xs"  %>
   <div class='product-body'>
-    <h3>La Recyclerie</h3>
-    <p>Le 12 novembre 2017</p>
+    <h4><%= evenement.name %></h4>
+    <p><%= evenement.date %></p>
   </div>
   <ul class="list-inline product-controls hidden-sm hidden-xs">
-    <li><a href=""><i class="fa fa-heart"></i></a></li>
-    <li><a href=""><i class="fa fa-share"></i></a></li>
-  </ul>
-</div>
-<div class="product">
-  <div class='product-upvote'>
-    <div class="product-arrow"></div>
-    <div class='product-count'>45</div>
-  </div>
-  <img src="kudoz.jpg" alt="Le WanderLust" class="product-image hidden-xs">
-  <div class='product-body'>
-    <h3>Le WanderLust</h3>
-    <p>Le 08 decembre 2017</p>
-  </div>
-  <ul class="list-inline product-controls hidden-sm hidden-xs">
-    <li><a href=""><i class="fa fa-heart"></i></a></li>
-    <li><a href=""><i class="fa fa-share"></i></a></li>
+    <li><%= link_to "Disposer d'un stand en tant que vendeuse", evenement_path(evenement) %><i class="fa fa-calendar-plus-o"></i></li>
   </ul>
 </div>

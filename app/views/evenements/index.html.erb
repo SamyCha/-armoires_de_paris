@@ -1,12 +1,26 @@
-  <ol class="breadcrumb">
-    <li><%= link_to "Accueil", root_path %></li>
-    <li class="active">Nos évenements</li>
-  </ol>
+<ol class="breadcrumb wrapper-blue">
+  <li><%= link_to "Accueil", root_path %></li>
+  <li class="active">Nos vides dressing</li>
+</ol>
 
 
-  <h4>Inscrivez-vous aux prochains évenements en tant que vendeuse:</h4>
+<div class="container">
+  <div class="row">
+    <header class="col-sm-12 text-center">
+      <div class="card card-inverse" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1478391679764-b2d8b3cd1e94?w=2850&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+        <div class="card-block">
+        <h1 class="card-title">Rejoignez les armoires de Paris</h1>
+        <p class="card-text">Venez découvrir nos stands ou inscrivez-vous aux prochains évenements en tant que vendeuse</p>
+        </div>
+      </div>
+    </header>
+  </div>
 
 
+
+
+
+    <h4>Nos vides dressing à venir:</h4>
     <div>
       <% @evenements.each do |evenement| %>
       <div class="col-xs-12">
@@ -15,23 +29,6 @@
       <% end %>
     </div>
 
-  <h4>Nos évenements passés:</h4>
-
-<div class="product">
-  <div class='product-upvote'>
-    <div class="product-arrow"></div>
-    <div class='product-count'>95</div>
-  </div>
-  <img src="kudoz.jpg" alt="la Recyclerie" class="product-image hidden-xs">
-  <div class='product-body'>
-    <h3>La Recyclerie</h3>
-    <p>Le 10 octobre 2017</p>
-  </div>
-  <ul class="list-inline product-controls hidden-sm hidden-xs">
-    <li><a href=""><i class="fa fa-heart"></i></a></li>
-    <li><a href=""><i class="fa fa-share"></i></a></li>
-  </ul>
-</div>
 
 
 
@@ -39,7 +36,7 @@
 
 
 <div id="map" style="width: 100%; height: 500px;"></div>
-
+</div>
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
