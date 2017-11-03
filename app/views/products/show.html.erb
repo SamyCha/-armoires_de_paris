@@ -1,10 +1,35 @@
+<ol class="breadcrumb wrapper-blue">
+  <li><%= link_to "Accueil", root_path %></li>
+  <li><%= link_to "Liste des articles", products_path %></li>
+  <li class="active">Article: <%= @product.name %></li>
+</ol>
 
 <div class="container">
-  <ol class="breadcrumb">
-    <li><%= link_to "Accueil", root_path %></li>
-    <li><%= link_to "Liste des articles", products_path %></li>
-    <li class="active">Articles</li>
-  </ol>
+    <div class="row">
+      <% if user_signed_in? %>
+        <% if current_user.vendor? %>
+          <aside class="col-sm-3">
+      <ul class="nav nav-sidebar">
+        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-eye"></i><%= t(".profile", default: " Tous mes articles") %><% end %>
+        </li>
+        <li class="sidebar_overview"><%= link_to edit_product_path do %><i class="fa fa-magic"></i><%= t(".profile", default: " Modifier cet article") %><% end %>
+        </li>
+        <li class="sidebar_overview"><%= link_to "Supprimer l'article", product_path(@product),
+                method: :delete,
+                data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article?" } %>
+        </li>
+
+        <li class="sidebar_overview"><%= link_to evenements_path do %><i class="fa fa-check-square"></i><%= t(".profile", default: " Reserver un stand") %><% end %>
+        </li>
+
+        <li class="sidebar_editprofil"><%= link_to edit_user_registration_path do %><i class="fa fa-user"></i><%= t(".profile", default: " Editer mon profile") %><% end %>
+        </li>
+      </ul>
+          </aside>
+        <% end %>
+      <% end %>
+
+<div class="container">
   <div class="row">
     <div class="col-md-6">
       <div class="row">
@@ -25,22 +50,16 @@
 
           <br>
           <br>
-          <button class="btn btn-lg btn-brand btn-full-width">
+          <button class="btn btn-lg btn-danger btn-full-width">
            Ajouter au panier
           </button>
-          <% if user_signed_in? %>
-            <%= link_to "Modifier l'article", edit_product_path, class: "btn btn-danger" %>
-            <%= link_to "Supprimer l'article", product_path(@product),
-                method: :delete,
-                data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article?" }, class: "btn btn-danger" %>
-          <% end %>
         </div>
       </div>
     </div>
     <div class=”col-md-6”>
       <div class="img-thumbnail">
         <% if @product.photo? %>
-        <%= cl_image_tag @product.photo.path, width: 400, height: 300, crop: :fill %>
+        <%= cl_image_tag @product.photo.path, width: 250, height: 200, crop: :fill %>
         <% end %>
       </div>
     </div>
@@ -73,7 +92,7 @@
       <p>Etat: <strong><%= @product.etat %></strong></p>
    </div>
    <div role="tabpanel" class="tab-pane top-10" id="features">
-  <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+  <%= image_tag "https://avatars1.githubusercontent.com/u/26875527?v=4", class: "avatar dropdown-toggle" %>
    <p><strong><%= @product.user.username %></strong></p>
           <span class="sr-only">Four out of Five Stars</span>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -81,8 +100,9 @@
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-          <span class="label label-success">61</span>
+          <span class="label label-success">61 avis</span>
           <p><%= @product.user.description %></p>
    </div>
   </div>
+</div>
 </div>

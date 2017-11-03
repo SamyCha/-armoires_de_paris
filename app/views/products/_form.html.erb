@@ -4,13 +4,13 @@
       <%= f.input :name %>
       <%= f.input :photo, as: :attachinary %>
       <%= f.input :description %>
-      <%= f.input :category %>
+      <%= f.select :category, [ 'Autre', 'Ceinture', 'Chapeau', 'Chaussures', 'Foulard', 'Pull', 'Jupe', 'Robe' ], :prompt => 'Choisir une categorie' %>
       <%= f.input :price %>
-      <%= f.input :sexe %>
+      <%= f.select :sexe, [ 'Femme', 'Homme', 'Homme & Femme' ], :prompt => 'Choisir un sexe' %>
       <%= f.input :taille %>
       <%= f.input :marque %>
-      <%= f.input :etat, placeholder:"neuf, bon état, occasion, usé..." %>
-      <%= f.input :matiere %>
+      <%= f.select :etat, [ 'Neuf', 'Bon état', 'Moyen', 'Usé', 'Trés usé' ], :prompt => 'Selectionner un état' %>
+      <%= f.input :matiere, placeholder:"coton, cuir..." %>
       <%= f.input :couleur %>
       <%= f.button :submit %>
       <% end %>
