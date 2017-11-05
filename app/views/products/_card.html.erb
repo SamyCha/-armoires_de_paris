@@ -8,7 +8,7 @@
   <div class="card-description">
     <p><strong><%= product.name %></strong></p>
     <p><%= product.marque %></p>
-    <p style="color:red"><%= product.price %> euros</p>
+    <p style="color:red"><%= humanized_money_with_symbol(product.price) %> euros</p>
   </div>
     <img class="card-user" src="https://avatars1.githubusercontent.com/u/26875527?v=4">
        <%= link_to "", product_path(product), class: "card-link" %>
