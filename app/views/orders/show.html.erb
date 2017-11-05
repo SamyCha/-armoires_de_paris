@@ -1,0 +1,6 @@
+<h1>Votre Panier</h1>
+<ul>
+  <li>Etat de la commande: <%= @order.state %></li>
+  <li>Votre article: <%= @order.product_sku %></li>
+  <li>Tarif: <%= humanized_money_with_symbol(@order.amount) %></li>
+<ul>
