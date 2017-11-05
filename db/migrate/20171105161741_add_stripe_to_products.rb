@@ -1,0 +1,6 @@
+class AddStripeToProducts < ActiveRecord::Migration[5.1]
+  def change
+    add_column :products, :sku, :string
+    add_monetize :products, :price, currency: { present: false }
+  end
+end

@@ -35,9 +35,9 @@
       <div class="row">
         <div class="col-md-12">
           <h1><strong><%= @product.name %></strong></h1>
-            <p class="product-price"><strong><%= @product.price %> euros </strong></p>
+            <p class="product-price"><strong><%= humanized_money_with_symbol(@product.price) %></strong></p>
           <span class="label label-primary"><%= @product.category %></span>
-          <span>No. 1960140180</span>
+          <span><%= @product.sku %></span>
           <p class="description"><strong><%= @product.description %></strong></p>
           <span class="sr-only">Four out of Five Stars</span>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -50,9 +50,10 @@
 
           <br>
           <br>
-          <button class="btn btn-lg btn-danger btn-full-width">
-           Ajouter au panier
-          </button>
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'product_id', @product.id %>
+  <%= submit_tag 'Ajouter au panier', class: 'btn btn-danger' %>
+<% end %>
         </div>
       </div>
     </div>
