@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :products
   resources :evenements
+  resources :users do
+    resources :reviews, only: [ :new, :create ]
+  end
 
   ActiveAdmin.routes(self)
   devise_for :users,

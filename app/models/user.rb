@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
 
   has_many :products, :dependent => :destroy
-  has_many :reviews
+  has_many :reviews, :dependent => :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -52,6 +52,4 @@ def self.find_for_facebook_oauth(auth)
   def init
     self.role  ||= 0
   end
-
-
 end

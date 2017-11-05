@@ -1,10 +1,30 @@
-  <ol class="breadcrumb wrapper-blue">
+  <ol class="breadcrumb wrapper">
     <li><%= link_to "Accueil", root_path %></li>
     <li class="active">Liste des articles</li>
   </ol>
 
 <div class="container">
-  <div class="row">
+      <% if user_signed_in? %>
+        <% if current_user.vendor? %>
+    <div class="sidebar">
+
+      <ul class="nav nav-sidebar">
+        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-plus-square"></i><%= t(".profile", default: " Ajouter un article") %><% end %>
+        </li>
+        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-eye"></i><%= t(".profile", default: " Tous mes articles") %><% end %>
+        </li>
+        <li class="sidebar_overview"><%= link_to evenements_path do %><i class="fa fa-check-square"></i><%= t(".profile", default: " Reserver un stand") %><% end %>
+        </li>
+
+        <li class="sidebar_editprofil"><%= link_to edit_user_registration_path do %><i class="fa fa-user"></i><%= t(".profile", default: " Editer mon profile") %><% end %>
+        </li>
+      </ul>
+
+        <% end %>
+      <% end %>
+    </div>
+
+  <div class="page-container">
     <header class="col-sm-12 text-center">
       <div class="card card-inverse" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1478391679764-b2d8b3cd1e94?w=2850&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
         <div class="card-block">
@@ -21,26 +41,7 @@
         </div>
       </div>
     </header>
-  </div>
 
-    <div class="row">
-      <% if user_signed_in? %>
-        <% if current_user.vendor? %>
-          <aside class="col-sm-3">
-      <ul class="nav nav-sidebar">
-        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-plus-square"></i><%= t(".profile", default: " Ajouter un article") %><% end %>
-        </li>
-        <li class="sidebar_overview"><%= link_to new_product_path do %><i class="fa fa-eye"></i><%= t(".profile", default: " Tous mes articles") %><% end %>
-        </li>
-        <li class="sidebar_overview"><%= link_to evenements_path do %><i class="fa fa-check-square"></i><%= t(".profile", default: " Reserver un stand") %><% end %>
-        </li>
-
-        <li class="sidebar_editprofil"><%= link_to edit_user_registration_path do %><i class="fa fa-user"></i><%= t(".profile", default: " Editer mon profile") %><% end %>
-        </li>
-      </ul>
-          </aside>
-        <% end %>
-      <% end %>
 
       <section class="col-sm-9">
         <div class="cards-container">
@@ -51,8 +52,10 @@
             <% end %>
         </div>
       </section>
-    </div>
+
   </div>
+</div>
+
 
 
 
