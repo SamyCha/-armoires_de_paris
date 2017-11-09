@@ -1,0 +1,20 @@
+<h4>résultats de Recherche </h4>
+
+<p><%= link_to 'Retour', new_search_path %></p>
+
+<% if @search.search_products.empty? %>
+  <p>Pas de produit trouvé</p>
+
+<% else %>
+
+  <% search.search_products.each do |c| %>
+  <br>
+
+  <div class="div">
+    <h4><%= c.name %></h4>
+    <p>Prix: EUR <%= c.price %></p>
+    <p>Catégorie: <%= c.category %></p>
+  </div>
+
+  <% end %>
+<% end %>

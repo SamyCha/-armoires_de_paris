@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :products
+  resources :searches
   resources :evenements
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
