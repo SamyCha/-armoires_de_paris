@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 95b8276d307aa86b7fbe27f870adfa24e5dbd378
+  revision: 58929997e176318b29f6638b2daf8c915249b9ea
   specs:
     activeadmin (2.0.0.alpha)
       arbre (>= 1.1.1)
@@ -134,7 +134,7 @@ GEM
     hashie (3.5.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.9.0)
+    i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -166,12 +166,13 @@ GEM
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.6.6)
-      mime-types (>= 1.16, < 4)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_mime (0.1.4)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
     monetize (1.4.0)
@@ -292,8 +293,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stripe (3.3.1)
-      faraday (~> 0.9)
+    stripe (3.8.0)
+      faraday (~> 0.10)
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)

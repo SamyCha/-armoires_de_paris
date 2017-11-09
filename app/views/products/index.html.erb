@@ -10,18 +10,18 @@
         <div class="card-block">
         <h1 class="card-title">Dans nos armoires</h1>
         <p class="card-text">Rechercher dans nos armoires vos articles favoris </p>
-          <form action="#" class="form-inline">
-          <select name="" id="" class="form-control input-sm">
-            <option value="1">Ceinture</option>
-            <option value="2">Chapeau</option>
-            <option value="3">Foulard</option>
-          </select>
-          <input type="submit" class="btn btn-primary btn-sm" value="Fouiller">
-        </form>
+
+<!-- formulaire de recherhche -->
+
         </div>
       </div>
     </header>
   </div>
+      <%= form_tag products_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Rechercher", class:"btn btn-primary btn-sm" %>
+      <% end %>
+      <%=link_to "Recherche avancée", new_search_path %>
 
     <div class="row">
       <% if user_signed_in? %>
