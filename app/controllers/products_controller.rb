@@ -3,7 +3,12 @@ class ProductsController < ApplicationController
  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    if params[:search_key]
+      @products = Product.where("name LIKE ? OR description LIKE ?",
+      "%#{params[:search_key]}%", "%#{params[:search_key]}%")
+    else
+      @products = Product.all
+    end
   end
 
   def show
@@ -47,7 +52,7 @@ private
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :category, :price, :taille, :marque, :sexe, :etat, :couleur, :matiere, :photo)
+    params.require(:product).permit(:name, :description, :category, :price, :taille, :marque, :sexe, :etat, :couleur, :matiere, :photo, :search_key)
   end
 
 end
