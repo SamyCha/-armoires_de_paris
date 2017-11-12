@@ -24,6 +24,42 @@
       </div>
     </div>
 
+    <div class="container">
+      <h2 class="text-center">Nos derniers articles</h2>
+      <div class="row">
+        <% @products.each do |product| %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                url('https://images.unsplash.com/photo-1478391679764-b2d8b3cd1e94?w=2850&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+                <div class="card-description">
+                  <h2><%= product.name.capitalize %></h2>
+                </div>
+                <span class="label label-primary"><%= product.category %></span>
+                <%= link_to "", product, class:"card-link" %>
+                <span class="label label-danger"><%= product.price %></span>
+              </div>
+            </div>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= link_to "Voir plus d'annonces", products_path, class:"btn btn-primary home-btn" %>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="text-center padded" id="newsletter">
       <h1>Recevoir des informations</h1>
       <p>Laissez-nous votre e-mail</p>
