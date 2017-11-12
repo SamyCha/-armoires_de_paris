@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :description, presence: true
   validates :role, presence: true
-  #validates :avatar, file: {ext: [:jpg, :png]}
+  #validates :picture, file: {ext: [:jpg, :png]}
 
 
 def self.find_for_facebook_oauth(auth)
