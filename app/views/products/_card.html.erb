@@ -3,13 +3,14 @@
          url('http://res.cloudinary.com/dbok3xp0b/image/upload/c_pad,h_200,w_300/v1508327524/qrowdmhacqk1c4blpw2b.jpg')">
 
   <div class="card-category">
-    <p><%= product.category %></p>
+          <span class="label label-primary"><%= product.category %></span>
   </div>
   <div class="card-description">
     <p><strong><%= product.name %></strong></p>
     <p><%= product.marque %></p>
-    <p style="color:red"><%= humanized_money_with_symbol(product.price) %> euros</p>
+  <span class="label label-danger"><%= humanized_money_with_symbol(product.price) %></span>
   </div>
     <img class="card-user" src="https://avatars1.githubusercontent.com/u/26875527?v=4">
        <%= link_to "", product_path(product), class: "card-link" %>
+
 </div>
