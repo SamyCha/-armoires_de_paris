@@ -2,26 +2,32 @@
     <li><%= link_to "Accueil", root_path %></li>
     <li class="active">Liste des articles</li>
   </ol>
+<div class="content">
+  <div class="container">
 
-<div class="container">
-  <div class="row">
-    <header class="col-sm-12 text-center">
-      <div class="card card-inverse" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1478391679764-b2d8b3cd1e94?w=2850&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
-        <div class="card-block">
-        <h1 class="card-title">Dans nos armoires</h1>
-        <p class="card-text">Rechercher dans nos armoires vos articles favoris </p>
-
-        </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <form action="<%= products_path %>">
+          <input type="text" placeholder="Jupe..." name="search_key">
+          <button type="submit">Rechercher</button>
+        </form>
       </div>
-    </header>
-  </div>
-    <div class="col-sm-12 text-center">
-    <form action="<%= products_path %>">
-      <input type="text" placeholder="Jupe..." name="search_key">
-      <button type="submit">Rechercher</button>
-    </form>
     </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <% @products.each do |product| %>
+      <div class="cards-container">
+        <%= render "card", product: product %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 
+</div>
+</div>
+
+
+    <!-- menu user
     <div class="row">
       <% if user_signed_in? %>
         <% if current_user.vendor? %>
@@ -40,18 +46,11 @@
           </aside>
         <% end %>
       <% end %>
-
-      <section class="col-sm-12">
-        <div class="cards-container">
-          <% @products.each do |product| %>
-            <div class="col-xs-12 col-md-3">
-              <%= render "card", product: product %>
-            </div>
-            <% end %>
-        </div>
-      </section>
     </div>
-  </div>
+
+    -->
+
+
 
 
 

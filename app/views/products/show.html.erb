@@ -28,9 +28,30 @@
           </aside>
         <% end %>
       <% end %>
+<div class="content"
+  <div class="container">
+    <div class="row">
+    <div class=”col-md-6”>
+      <div class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @product.photo.path, height: 300, width: 400, crop: :fill %>')">
+  <div class="card-category">
+  <span class="label label-primary"><%= @product.category %></span>
+  </div>
+  <div class="card-description">
+    <p><strong><%= @product.name %></strong></p>
+    <p><%= @product.marque %></p>
+    <span class="label label-danger"><%= humanized_money_with_symbol(@product.price) %></span>
+  </div>
+    <img class="card-user" src="https://avatars1.githubusercontent.com/u/26875527?v=4">
+       <%= link_to "", product_path(@product), class: "card-link" %>
+</div>
+</div>
 
-<div class="container">
-  <div class="row">
+
+
+
+
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-12">
@@ -57,7 +78,8 @@
         </div>
       </div>
     </div>
-    <div class=”col-md-6”>
+
+   <div class=”col-md-6”>
       <div class="img-thumbnail">
         <% if @product.photo? %>
         <%= cl_image_tag @product.photo.path, width: 250, height: 200, crop: :fill %>
@@ -65,6 +87,18 @@
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
